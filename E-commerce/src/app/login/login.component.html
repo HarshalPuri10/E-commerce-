@@ -1,0 +1,37 @@
+<p>login works!</p>
+
+
+<form style="box-shadow: 0 0 8px -2px #444444;width: 500px;height: 345px;" class="position" [formGroup]="loginForm">
+
+    <h1 class="heading" style="width: 100%;"> User Login </h1>
+
+    <div>
+        <p
+            style="position: relative;top: 0;left:18px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; ">
+            Your email </p>
+
+        <input class="border form-control" type="text" formControlName="email" placeholder="Email"
+            id="validationCustom01" value="Mark" required />
+    </div>
+
+    <div>
+        <p
+            style="position: relative;top: 0;left: 20px;padding-top: 0;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+            Your Password</p>
+        <input class="border" type="password" formControlName="password" placeholder="*********" />
+    </div>
+    <div class="errormsg"
+        *ngIf="(loginForm.controls['password'].touched  || loginForm.controls['password'].dirty) && !loginForm.controls['password'].valid ">
+        Password must be of 4 character
+    </div>
+    
+    <div>
+        <button class="center" style="margin-top: 25px;" [disabled]="!loginForm.valid"
+            (click)="login()" >Login</button>
+
+            
+    </div>
+
+</form>
